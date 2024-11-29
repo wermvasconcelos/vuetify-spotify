@@ -24,7 +24,7 @@
   
   const getAccessToken = async (code: string) => {
     const clientId = 'b1fa1e63f13447dd828daedcd729ab1d';
-    const redirectUri = 'http://localhost:3000/callback';
+    const redirectUri = 'https://vuetify-spotify.vercel.app/callback';
     const codeVerifier = localStorage.getItem('code_verifier') || '';
   
     try {
