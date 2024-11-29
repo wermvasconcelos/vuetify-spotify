@@ -2,11 +2,14 @@
     <v-container>
       <h1>Callback</h1>
       <p>Processando login...</p>
+      {{ token }}
     </v-container>
   </template>
   
   <script lang="ts" setup>
-  import { onMounted } from 'vue';
+  import { onMounted, ref } from 'vue';
+
+  const token = ref();
   
   onMounted(() => {
     const queryParams = new URLSearchParams(window.location.search);
@@ -40,6 +43,7 @@
       });
   
       const data = await response.json();
+      token.value = data.access_token;
       console.log('Access Token:', data.access_token);
     } catch (error) {
       console.error('Erro ao obter token:', error);
